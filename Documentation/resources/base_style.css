@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* HTML and Body styles */
+
+html {
+   background: url(dlr_back2.png), rgb(233, 200, 163);
+   font-family: Verdana, Geneva, sans-serif;
+   height: 100%;
+}
+
+body {
+   background-color: white;
+   box-shadow: rgb(51, 51, 51) 10px 0px 40px,  rgb(51, 51, 51) -10px 0px 40px;
+   border-left: 1px solid rgb(153, 83, 6);
+   border-right: 1px solid rgb(153, 83, 6);
+   height: 100%;
+   margin: 0px auto;
+   min-width: 320px;
+   max-width: 1200px;
+   width: 100%;
+}
+
+/* Flex Layout */
+
+body {
+   display: flex;
+   flex-flow: column nowrap;
+}
+
+header, footer {
+   flex-shrink: 0;
+}
+
+div#container {
+   flex: 1 0 auto;
+}
+
+/* Section styles */
+
+div.method {
+   padding: 10px 20px 0px 20px;
+}
+
+div.method h2 {
+   color: white;
+   background: linear-gradient(to right, rgb(153, 83, 6) 30%, black);
+   font-size: 1.1em;
+   letter-spacing: 5px;
+   padding: 5px 0px 5px 12px;
+}
+
+section.about p {
+   line-height: 1.4em;
+   margin: 15px;
+}
+
+/* ===============================
+   Mobile Styles: 0px to 640px
+   ===============================
+*/
+@media only screen and (max-width: 640px) {}
+
+/* =============================================
+   Tablet and Desktop Styles: greater than 640px
+   =============================================
+*/
+@media only screen and (min-width: 641px) {}
