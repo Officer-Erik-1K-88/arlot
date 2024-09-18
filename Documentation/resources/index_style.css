@@ -18,19 +18,19 @@ header h1 {
 
 /* Navigation list styles */
 
-header nav ul li, header nav ul li ul li {
+header nav ul li {
    background-color: rgb(233, 200, 163);
-   font-size: 0.8em;
+   /*font-size: 0.8em;*/
    padding: 0px 10px;
 }
 
-header nav ul li a, header nav ul li ul li a {
+header nav ul li a {
    color: rgb(153, 83, 6);
    display: block;
    width: 100%;
 }
 
-header nav ul li a:hover, header nav ul li ul li a:hover {
+header nav ul li a:hover {
    color: white;
    background-color: rgb(153, 83, 6);
 }

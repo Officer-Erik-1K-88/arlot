@@ -91,17 +91,28 @@
             </ul>
         </nav>
     </header>
-    <iframe name="content" title="Arlot Documentation: Directory"></iframe>
+    <iframe id="content" name="content" title="Arlot Documentation: Directory"></iframe>
     <footer>
         <!-- Copyright information -->
     </footer>
     <script type="text/javascript">
         const navlinks = document.querySelectorAll("a[target='content']");
         for (let i = 0; i < navlinks.length; i++) {
-            navlinks[i].onclick = function() {
-                const own = navLink[i];
-                
-            };
+            navlinks[i].addEventListener("click", function() {
+                var classHref = this.getAttribute("href");
+                if (classHref != undefined) {
+                    classHref = classHref.replace(/\\/g, "/");
+                    classHref = classHref.replace(/\//g, ".");
+                    classHref = classHref.replace(/\.{2,}/g, ".");
+                    if (classHref.startsWith(".")) {
+                        classHref.replace(".", "");
+                    }
+                }
+                const title = document.getElementsByTagName("title")[0];
+                title.innerHTML = title.innerHTML.split(":")[0] + " " + classHref;
+                const content = document.getElementById("content");
+                content.title = title.innerHTML;
+            });
         }
     </script>
 </body>
