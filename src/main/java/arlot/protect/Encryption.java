@@ -1,4 +1,4 @@
-package arlot.protection;
+package arlot.protect;
 
 import arlot.math.*;
 import arlot.math.Number;

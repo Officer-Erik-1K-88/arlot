@@ -4,7 +4,7 @@ module arlot {
     exports arlot.user.display.controllers;
     exports arlot.math;
     exports arlot.roleplay;
-    exports arlot.protection;
+    exports arlot.protect;
     exports arlot.roleplay.info;
     exports arlot.data;
     exports arlot.error;

@@ -1,4 +1,4 @@
-import arlot.protection.Encryption;
+import arlot.protect.Encryption;
 
 public class ProtectionTest {
     public static void main(String[] args) throws Exception {

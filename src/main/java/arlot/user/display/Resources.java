@@ -334,7 +334,7 @@ public final class Resources {
                         "target/classes/arlot/roleplay/info/",
                         "target/classes/arlot/error/",
                         "target/classes/arlot/math/",
-                        "target/classes/arlot/protection/",
+                        "target/classes/arlot/protect/",
                         "target/classes/arlot/time/",
 
                         "arlot/target/classes/arlot/",
@@ -347,7 +347,7 @@ public final class Resources {
                         "arlot/target/classes/arlot/roleplay/info/",
                         "arlot/target/classes/arlot/error/",
                         "arlot/target/classes/arlot/math/",
-                        "arlot/target/classes/arlot/protection/",
+                        "arlot/target/classes/arlot/protect/",
                         "arlot/target/classes/arlot/time/",
 
                         "src/main/resources/classes/arlot/user/display/",
@@ -360,7 +360,7 @@ public final class Resources {
                         "src/main/java/arlot/roleplay/info/",
                         "src/main/java/arlot/error/",
                         "src/main/java/arlot/math/",
-                        "src/main/java/arlot/protection/",
+                        "src/main/java/arlot/protect/",
                         "src/main/java/arlot/time/",
 
                         "arlot/src/main/resources/classes/arlot/user/display/",
@@ -373,7 +373,7 @@ public final class Resources {
                         "arlot/src/main/java/arlot/roleplay/info/",
                         "arlot/src/main/java/arlot/error/",
                         "arlot/src/main/java/arlot/math/",
-                        "arlot/src/main/java/arlot/protection/",
+                        "arlot/src/main/java/arlot/protect/",
                         "arlot/src/main/java/arlot/time/",
                 };
                 loaders = new ClassLoader[] {
