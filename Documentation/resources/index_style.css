@@ -1,5 +1,22 @@
 @charset "utf-8";
 
+/* HTML and Body styles */
+
+html {
+   background-color: rgb(233, 200, 163);
+}
+
+body {
+   background-color: white;
+   box-shadow: rgb(51, 51, 51) 10px 0px 40px,  rgb(51, 51, 51) -10px 0px 40px;
+   border-left: 1px solid rgb(153, 83, 6);
+   border-right: 1px solid rgb(153, 83, 6);
+   margin: 0px auto;
+   min-width: 320px;
+   max-width: 1200px;
+   width: 100%;
+}
+
 /* Header styles */
 
 header {
@@ -57,6 +74,15 @@ header nav ul li a:hover {
 
 a#navicon {
    display: none;
+}
+
+/* Iframe styles */
+
+iframe#content {
+   width: 100%;
+   border: none;
+   outline: none;
+   flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Footer styles */

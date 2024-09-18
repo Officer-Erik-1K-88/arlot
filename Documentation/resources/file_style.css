@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/* Body styles */
+body {
+    margin: 8px;
+}
+
+/* Section styles */
+
+article.method {
+    padding: 10px 20px 0px 20px;
+ }
+ 
+ article.method h2 {
+    color: white;
+    background: linear-gradient(to right, rgb(153, 83, 6) 30%, black);
+    font-size: 1.1em;
+    letter-spacing: 5px;
+    padding: 5px 0px 5px 12px;
+ }
+ 
+ section.about p {
+    line-height: 1.4em;
+    margin: 15px;
+ }

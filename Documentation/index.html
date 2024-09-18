@@ -11,9 +11,9 @@
     <header>
         <h1>Arlot Documentation: <span class="className"></span></h1>
         <nav>
-            <a id="navicon" href="#"><img src="resources/navicon.png" alt="" /></a>
+            <a id="navicon"><img src="resources/navicon.png" alt=""></a>
             <ul>
-                <li><a href="#" target="content">Directory</a></li>
+                <li><a href="resources/templete.html" target="content">Directory</a></li>
                 <li class="dropdown">
                     <a href="#" target="content">data</a>
                     <ul class="dropdown-content">
@@ -96,20 +96,27 @@
         <!-- Copyright information -->
     </footer>
     <script type="text/javascript">
+        window.addEventListener("message", function(event) {
+            //if (event.origin !== window.location.origin) return;
+            const iframe = document.getElementById('content');
+            var height = event.data.height;
+            var padding = height/172.9;
+            if (padding < 4) {
+                console.log("tt");
+                padding += 4;
+            }
+            height += padding;
+            //console.log(height);
+            iframe.style.height = height + 'px';
+        }, false);
+
         const navlinks = document.querySelectorAll("a[target='content']");
         for (let i = 0; i < navlinks.length; i++) {
             navlinks[i].addEventListener("click", function() {
-                var classHref = this.getAttribute("href");
-                if (classHref != undefined) {
-                    classHref = classHref.replace(/\\/g, "/");
-                    classHref = classHref.replace(/\//g, ".");
-                    classHref = classHref.replace(/\.{2,}/g, ".");
-                    if (classHref.startsWith(".")) {
-                        classHref.replace(".", "");
-                    }
-                }
+                var clazzName = this.getAttribute("data-name") || this.innerText;
+                
                 const title = document.getElementsByTagName("title")[0];
-                title.innerHTML = title.innerHTML.split(":")[0] + " " + classHref;
+                title.innerHTML = title.innerHTML.split(":")[0] + ": " + clazzName;
                 const content = document.getElementById("content");
                 content.title = title.innerHTML;
             });
