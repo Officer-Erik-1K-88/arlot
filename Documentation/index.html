@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Arlot Documentation: <span class="className"></span></h1>
+        <h1>Arlot Documentation: <span id="className"></span></h1>
         <nav>
             <a id="navicon"><img src="resources/navicon.png" alt=""></a>
             <ul>
@@ -96,31 +96,27 @@
         <!-- Copyright information -->
     </footer>
     <script type="text/javascript">
+        const title = document.getElementsByTagName("title")[0];
+        const navlinks = document.querySelectorAll("a[target='content']");
+        const iframe = document.getElementById('content');
+
+        const clazzName = document.getElementById("className");
+
         window.addEventListener("message", function(event) {
             //if (event.origin !== window.location.origin) return;
-            const iframe = document.getElementById('content');
-            var height = event.data.height;
+            const data = event.data;
+            var height = data.height;
             var padding = height/172.9;
             if (padding < 4) {
-                console.log("tt");
                 padding += 4;
             }
             height += padding;
             //console.log(height);
             iframe.style.height = height + 'px';
+            title.innerHTML = data.meta.title;
+            iframe.title = data.meta.title;
+            clazzName.innerHTML = data.meta.title.split(": ")[1];
         }, false);
-
-        const navlinks = document.querySelectorAll("a[target='content']");
-        for (let i = 0; i < navlinks.length; i++) {
-            navlinks[i].addEventListener("click", function() {
-                var clazzName = this.getAttribute("data-name") || this.innerText;
-                
-                const title = document.getElementsByTagName("title")[0];
-                title.innerHTML = title.innerHTML.split(":")[0] + ": " + clazzName;
-                const content = document.getElementById("content");
-                content.title = title.innerHTML;
-            });
-        }
     </script>
 </body>
 </html>

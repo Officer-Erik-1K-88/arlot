@@ -3,5 +3,11 @@ window.onload = function() {
     if (height < 56) {
         height += 56;
     }
-    window.parent.postMessage({ height: height }, "*");
+    const title = document.getElementsByTagName("title")[0];
+    window.parent.postMessage({
+        height: height,
+        meta: {
+            title: title.innerHTML
+        }
+    }, "*");
 };
