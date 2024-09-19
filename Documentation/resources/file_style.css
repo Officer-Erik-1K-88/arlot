@@ -5,21 +5,69 @@ body {
     margin: 8px;
 }
 
+body > h1 {
+    font-style: oblique;
+    color: rgb(123, 8, 77);
+    background: linear-gradient(to right, rgb(255, 187, 228) 40%, black);
+    font-size: 1.4em;
+    letter-spacing: 1px;
+    padding: 10px 0px 10px 12px;
+}
+
 /* Section styles */
 
-article.method {
-    padding: 10px 20px 0px 20px;
- }
+div.methods, article.method, div.constructors, article.constructor {
+    padding: 10px 20px 10px 20px;
+}
  
- article.method h2 {
+div.methods h2, div.constructors h2 {
     color: white;
-    background: linear-gradient(to right, rgb(153, 83, 6) 30%, black);
+    background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
     font-size: 1.1em;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     padding: 5px 0px 5px 12px;
- }
- 
- section.about p {
-    line-height: 1.4em;
+}
+
+article.method, article.constructor {
+    border: 2px solid hotpink;
+}
+
+article.method h3 {
+    color: white;
+    background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
+    font-size: 1em;
+    letter-spacing: 1px;
+    padding: 5px 0px 5px 12px;
+}
+
+div.parameters {
+    border: 1px solid plum;
+}
+
+section {
     margin: 15px;
- }
+}
+
+section.parameter h4, section.parameter h5 {
+    color: white;
+    background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
+    font-size: 1em;
+    padding: 2px 0px 2px 9px;
+}
+
+section.parameter h5 {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 0.8em;
+    text-decoration-line: overline;
+    -moz-text-decoration-line: overline;
+    text-decoration-thickness: 10%;
+    text-decoration-color: rgb(255, 220, 241);
+    -moz-text-decoration-color: rgb(255, 220, 241);
+    padding: 0px 0px 2px 12px;
+    margin-top: 0px;
+}
+
+section.about p {
+    line-height: 1.4em;
+}

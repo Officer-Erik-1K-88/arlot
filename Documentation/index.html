@@ -13,6 +13,7 @@
         <nav>
             <a id="navicon"><img src="resources/navicon.png" alt=""></a>
             <ul>
+                <li><a href="resources/templete.html" target="content">Templete</a></li>
                 <li><a href="self.html" target="content">Overview</a></li>
                 <li><a href="arlot.html" target="content">Arlot</a></li>
                 <li><a href="generator.html" target="content">Generator</a></li>
@@ -170,6 +171,20 @@
             iframe.title = data.meta.title;
             clazzName.innerHTML = data.meta.title.split(": ")[1];
         }, false);
+
+        /*for (let i=0; i<navlinks.length; i++) {
+            navlinks[i].onclick
+        }*/
+
+        navlinks.forEach(function(link) {
+            link.onclick = function() {
+                const active = document.getElementsByClassName("active")[0];
+                if (active != undefined) {
+                    active.classList.remove("active");
+                }
+                this.parentElement.classList.add("active");
+            };
+        });
     </script>
 </body>
 </html>

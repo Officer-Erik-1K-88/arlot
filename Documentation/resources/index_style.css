@@ -3,14 +3,14 @@
 /* HTML and Body styles */
 
 html {
-   background-color: rgb(233, 200, 163);
+   background-color: rgb(233, 163, 210);
 }
 
 body {
    background-color: white;
    box-shadow: rgb(51, 51, 51) 10px 0px 40px,  rgb(51, 51, 51) -10px 0px 40px;
-   border-left: 1px solid rgb(153, 83, 6);
-   border-right: 1px solid rgb(153, 83, 6);
+   border-left: 1px solid rgb(153, 6, 94);
+   border-right: 1px solid rgb(153, 6, 94);
    margin: 0px auto;
    min-width: 320px;
    max-width: 1200px;
@@ -19,15 +19,19 @@ body {
 
 /* Header styles */
 
+#className {
+   color: rgb(255, 220, 241);
+}
+
 header {
-   background-color: rgb(233, 200, 163);
-   border-bottom: 1px solid rgb(153, 83, 6);
+   background-color: rgb(233, 163, 210);
+   border-bottom: 1px solid rgb(153, 6, 94);
    color: white;
 
 }
 
 header h1 {
-   background: linear-gradient(to right, rgb(153, 83, 6) 30%, black);
+   background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
    color: white;
    font-size: 1.4em;
    padding: 5px 0px 5px 12px;
@@ -36,40 +40,49 @@ header h1 {
 /* Navigation list styles */
 
 header nav ul li {
-   background-color: rgb(233, 200, 163);
+   background-color: rgb(233, 163, 210);
    /*font-size: 0.8em;*/
    padding: 0px 10px;
 }
 
 header nav ul li a {
-   color: rgb(153, 83, 6);
+   color: rgb(153, 6, 94);
    display: block;
    width: 100%;
 }
 
+.active, .active > a {
+   color: white;
+   background-color: rgb(177, 27, 117);
+}
+
 header nav ul li a:hover {
    color: white;
-   background-color: rgb(153, 83, 6);
+   background-color: rgb(153, 6, 94);
 }
 
 .dropdown {
-  position: relative;
-  display: inline-block;
+   position: relative;
+   display: inline-block;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgb(233, 200, 163);
-  min-width: 50px;
-  border: 1px solid rgb(153, 83, 6);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
+   display: none;
+   position: absolute;
+   background-color: rgb(233, 163, 210);
+   min-width: 50px;
+   border: 1px solid rgb(153, 6, 94);
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   padding: 12px 16px;
+   z-index: 1;
+}
+
+.dropdown-content > li {
+   display: block;
 }
 
 .dropdown:hover > .dropdown-content {
-  display: block;
+   display: block;
 }
 
 a#navicon {
@@ -89,7 +102,7 @@ iframe#content {
 
 footer {
    color: white;
-   background: linear-gradient(to right, rgb(153, 83, 6) 30%, black);
+   background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
    font-size: 0.65em;
    font-style: normal;
    height: 30px;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Arlot Documentation: [class name]</title>
+    <title>Arlot Documentation: Date</title>
     <link href="../resources/base_reset.css" rel="stylesheet">
     <link href="../resources/base_style.css" rel="stylesheet">
     <link href="../resources/file_style.css" rel="stylesheet">
@@ -10,21 +10,173 @@
 <body>
     <section class="about">
         <!-- about the class -->
+         <p>The date class allows for the creation of and formatting of dates.</p>
     </section>
-    <!-- Methods lay beyond -->
-    <article class="method">
-        <h2 class="mehtodName">Test</h2>
-        <section class="about">
-            <!-- about the method -->
-        </section>
-        <!-- Parameters lay beyond -->
-        <section class="parameter">
-            <h3 class="paramName"></h3>
+    <!-- Constructors lay beyond -->
+    <div class="constructors">
+        <h2>Constructors</h2>
+        <article class="constructor">
+            <h3>Base Constructor</h3>
             <section class="about">
-                <!-- about the parameter -->
+                <!-- about the constructor -->
+                <p>This creates an empty Date Object.</p>
             </section>
-        </section>
-    </article>
+        </article>
+        <article class="constructor">
+            <h3>java.util.Date Constructor</h3>
+            <section class="about">
+                <!-- about the constructor -->
+                <p>This constructor creates a new Date Object with the provided java.util.Date Object.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">heldDate</h4>
+                    <h5 class="paramType">java.util.Date</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The java.util.Date to be used as the held java.util.Date</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="constructor">
+            <h3>long number Constructor</h3>
+            <section class="about">
+                <!-- about the constructor -->
+                <p>This constructor creates a new Date Object with the provided long number.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">date</h4>
+                    <h5 class="paramType">long</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>Allocates a java.util.Date object and initializes it to represent the specified number of milliseconds since the standard base time known as "the epoch", namely January 1, 1970, 00:00:00 GMT.</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="constructor">
+            <h3>String Constructor</h3>
+            <section class="about">
+                <!-- about the constructor -->
+                <p>This constructor creates a new Date Object with the provided String.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">date</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of a Date Object where it if formatted as follows: "<code>MM-dd-yyyy hh:mm:ss</code>".</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="constructor">
+            <h3>Formatter Constructor</h3>
+            <section class="about">
+                <!-- about the constructor -->
+                <p>This constructor creates a new Date Object with a defined format.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">formatCalendar</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of the date format.</p>
+                    </section>
+                </section>
+                <section class="parameter">
+                    <h4 class="paramName">formatClock</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of the time format.</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="constructor">
+            <h3>Formatter w/ String Constructor</h3>
+            <section class="about">
+                <!-- about the constructor -->
+                <p>This constructor creates a new Date Object with a defined format and applies said format to a string representation of a Date Object.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">formatCalendar</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of the date format.</p>
+                    </section>
+                </section>
+                <section class="parameter">
+                    <h4 class="paramName">formatClock</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of the time format.</p>
+                    </section>
+                </section>
+                <section class="parameter">
+                    <h4 class="paramName">date</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of a Date Object where it if formatted as follows: "<code>MM-dd-yyyy hh:mm:ss</code>".</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="constructor">
+            <h3>Clone Constructor</h3>
+            <section class="about">
+                <!-- about the constructor -->
+                <p>This constructor creates a new Date Object with the provided Date Object. Is for copying of other Date Objects.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">date</h4>
+                    <h5 class="paramType">Date</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The Date Object to be cloned.</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+    </div>
+    <!-- Methods lay beyond -->
+    <div class="methods">
+        <h2>Methods</h2>
+        <article class="method">
+            <h3 class="mehtodName">method</h3>
+            <section class="about">
+                <!-- about the method -->
+                <p>This is the description of a method.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">methodParameter</h4>
+                    <h5 class="paramType">methodParameterDataType</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>This is the description of a method parameter.</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+    </div>
     <script src="../resources/file_script.js" type="text/javascript"></script>
 </body>
 </html>
