@@ -28,10 +28,18 @@ header, footer {
    Mobile Styles: 0px to 640px
    ===============================
 */
-/*@media only screen and (max-width: 640px) {}*/
+@media only screen and (max-width: 640px) {
+   body {
+      font-size: 14px;
+   }
+}
 
 /* =============================================
    Tablet and Desktop Styles: greater than 640px
    =============================================
 */
-/*@media only screen and (min-width: 641px) {}*/
+@media only screen and (min-width: 641px) {
+   body {
+      font-size: 16px;
+   }
+}

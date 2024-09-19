@@ -12,7 +12,9 @@
     <header>
         <h1>Arlot Documentation: <span id="className"></span></h1>
         <nav>
-            <a id="navicon"><img src="resources/navicon.png" alt=""></a>
+            <a id="navicon">
+                <img src="resources/navicon.png" width="10%" alt="Navigation" onerror="">
+            </a>
             <ul>
                 <li><a href="resources/templete.html" target="content">Templete</a></li>
                 <li><a href="self.html" target="content">Overview</a></li>
@@ -173,10 +175,6 @@
             clazzName.innerHTML = data.meta.title.split(": ")[1];
         }, false);
 
-        /*for (let i=0; i<navlinks.length; i++) {
-            navlinks[i].onclick
-        }*/
-
         navlinks.forEach(function(link) {
             link.onclick = function() {
                 const active = document.getElementsByClassName("active")[0];
@@ -186,6 +184,12 @@
                 this.parentElement.classList.add("active");
             };
         });
+
+        const img = document.getElementsByTagName("img")[0];
+        img.onerror = function() {
+            img.src = "resources/navicon2.png";
+            img.onerror = null;
+        }
     </script>
 </body>
 </html>

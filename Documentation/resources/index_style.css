@@ -85,6 +85,7 @@ header nav ul li a:hover {
 }
 
 a#navicon {
+   color: rgb(153, 6, 94);
    display: none;
 }
 
@@ -117,6 +118,12 @@ footer {
    a#navicon {
       display: block;
    }
+   
+   #className {
+      display: block;
+      padding-top: 4px;
+      padding-bottom: 4px;
+   }
 
    header nav ul {
       display: none;
@@ -125,11 +132,12 @@ footer {
    header nav ul li {
       font-size: 1em;
       line-height: 1.3em;
-      height: 1.3em;
    }
 
    a#navicon:hover + ul, header > nav > ul:hover {
-      display: block;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
    }
 }
 
