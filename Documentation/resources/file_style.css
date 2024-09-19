@@ -8,7 +8,7 @@ body {
 body > h1 {
     font-style: oblique;
     color: rgb(123, 8, 77);
-    background: linear-gradient(to right, rgb(255, 187, 228) 40%, black);
+    background: linear-gradient(to right, rgb(255, 187, 228) 40%, rgb(153, 6, 94));
     font-size: 1.4em;
     letter-spacing: 1px;
     padding: 10px 0px 10px 12px;
@@ -32,12 +32,28 @@ article.method, article.constructor {
     border: 2px solid hotpink;
 }
 
-article.method h3 {
+article.method h3,
+article.method > p.methodData,
+article.constructor h3 {
     color: white;
     background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
     font-size: 1em;
     letter-spacing: 1px;
     padding: 5px 0px 5px 12px;
+}
+
+article.method > p.methodData {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 0.8em;
+    letter-spacing: 0px;
+    text-decoration-line: overline;
+    -moz-text-decoration-line: overline;
+    text-decoration-thickness: 10%;
+    text-decoration-color: rgb(255, 220, 241);
+    -moz-text-decoration-color: rgb(255, 220, 241);
+    padding: 0px 0px 2px 12px;
+    margin-top: 0px;
 }
 
 div.parameters {

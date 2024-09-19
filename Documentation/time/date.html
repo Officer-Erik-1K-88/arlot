@@ -8,6 +8,7 @@
     <link href="../resources/file_style.css" rel="stylesheet">
 </head>
 <body>
+    <h1>Date</h1>
     <section class="about">
         <!-- about the class -->
          <p>The date class allows for the creation of and formatting of dates.</p>
@@ -159,22 +160,232 @@
     <div class="methods">
         <h2>Methods</h2>
         <article class="method">
-            <h3 class="mehtodName">method</h3>
+            <h3 class="mehtodName">update</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">java.util.Date</span>
+            </p>
             <section class="about">
                 <!-- about the method -->
-                <p>This is the description of a method.</p>
+                <p>Updates this Date Object with a new java.util.Date.</p>
+                <p>Returns the old stored date.</p>
             </section>
             <!-- Parameters lay beyond -->
             <div class="parameters">
                 <section class="parameter">
-                    <h4 class="paramName">methodParameter</h4>
-                    <h5 class="paramType">methodParameterDataType</h5>
+                    <h4 class="paramName">newDate</h4>
+                    <h5 class="paramType">java.util.Date</h5>
                     <section class="about">
                         <!-- about the parameter -->
-                        <p>This is the description of a method parameter.</p>
+                        <p>The date to replace the old date.</p>
                     </section>
                 </section>
             </div>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">setFormat</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">void</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>This method resets the date and time format of this Date Object.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">formatCalendar</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of the date format.</p>
+                    </section>
+                </section>
+                <section class="parameter">
+                    <h4 class="paramName">formatClock</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The String representation of the time format.</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">getFormatCalendar</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">String</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Gets the String that represents the date format.</p>
+            </section>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">getFormatClock</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">String</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Gets the String that represents the time format.</p>
+            </section>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">getFormat</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">String</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Gets the full pattern used for formatting. The return of this method should equal <code>getFormatCalendar() + " " + getFormatClock()</code>.</p>
+            </section>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">getFormatter</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">SimpleDateFormat</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Gets a copy of the SimpleDateFormat that is used for formatting this Date Object.</p>
+            </section>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">getDate</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">java.util.Date</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Gets a copy of the java.util.Date that is used for holding this Date Object's date.</p>
+            </section>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">format</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">StringBuffer</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Formats a java.util.Date into a date-time string. The formatted string is appended to the given StringBuffer.</p>
+                <p>Returns the string buffer passed in as toAppendTo, with formatted text appended.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">date</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>a Date to be formatted into a date-time string.</p>
+                    </section>
+                </section>
+                <section class="parameter">
+                    <h4 class="paramName">toAppendTo</h4>
+                    <h5 class="paramType">StringBuffer</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>the string buffer for the returning date-time string.</p>
+                    </section>
+                </section>
+                <section class="parameter">
+                    <h4 class="paramName">fieldPosition</h4>
+                    <h5 class="paramType">FieldPosition</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>keeps track on the position of the field within the returned string. For example, given a date-time text <code>"1996.07.10 AD at 15:08:56 PDT"</code> if the given fieldPosition is <code>DateFormat.YEAR_FIELD</code>, the begin index and end index of fieldPosition will be set to 0 and 4, respectively.</p>
+                        <p>Notice that if the same date-time field appears more than once in a pattern, the fieldPosition will be set for the first occurrence of that date-time field. For instance, formatting a Date to the date-time string <code>"1 PM PDT (Pacific Daylight Time)"</code> using the pattern <code>"h a z (zzzz)"</code> and the alignment field <code>DateFormat.TIMEZONE_FIELD</code>, the begin index and end index of fieldPosition will be set to 5 and 8, respectively, for the first occurrence of the timezone pattern character <code>'z'</code>.</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">parse</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">java.util.Date</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Parse a date/time string according to the given parse position. For example, a time text <code>"07/10/96 4:5 PM, PDT"</code> will be parsed into a Date that is equivalent to <code>Date(837039900000L)</code>.</p>
+                <p>By default, parsing is lenient: If the input is not in the form used by this object's format method but can still be parsed as a date, then the parse succeeds. Clients may insist on strict adherence to the format by calling <code>setLenient(false)</code>.</p>
+                <p>This parsing operation uses the <code>calendar</code> to produce a Date. As a result, the <code>calendar</code>'s date-time fields and the <code>TimeZone</code> value may have been overwritten, depending on subclass implementations. Any <code>TimeZone</code> value that has previously been set by a call to <code>setTimeZone(TimeZone)</code> may need to be restored for further operations.</p>
+                <p>Returns A Date, or null if the input could not be parsed.</p>
+            </section>
+            <!-- Parameters lay beyond -->
+            <div class="parameters">
+                <section class="parameter">
+                    <h4 class="paramName">source</h4>
+                    <h5 class="paramType">String</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>The date/time string to be parsed.</p>
+                    </section>
+                </section>
+                <section class="parameter">
+                    <h4 class="paramName">pos</h4>
+                    <h5 class="paramType">ParsePosition</h5>
+                    <section class="about">
+                        <!-- about the parameter -->
+                        <p>On input, the position at which to start parsing; on output, the position at which parsing terminated, or the start position if the parse failed.</p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">toString</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">String</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Gets the string value of this Date using its formatter.</p>
+                <p>Returns a string representation of this Date.</p>
+            </section>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">toInstant</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">Instant</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Converts this Date Object to an Instant. The conversion creates an Instant that represents the same point on the time-line as this Date.</p>
+                <p>Returns an instant representing the same point on the time-line as this Date Object.</p>
+            </section>
+        </article>
+        <article class="method">
+            <h3 class="mehtodName">clone</h3>
+            <p class="methodData">
+                <span class="methodStatus">public</span>
+                <span class="methodLevel"></span>
+                <span class="methodReturn">Object</span>
+            </p>
+            <section class="about">
+                <!-- about the method -->
+                <p>Creates a copy of this Date Object.</p>
+            </section>
         </article>
     </div>
     <script src="../resources/file_script.js" type="text/javascript"></script>
