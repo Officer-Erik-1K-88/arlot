@@ -30,7 +30,7 @@ body > p.classData {
     margin-top: 0px;
 }
 
-/* Section styles */
+/* Method and Constructor styles */
 
 div.methods, article.method, div.constructors, article.constructor {
     padding: 10px 20px 10px 20px;
@@ -75,6 +75,8 @@ article.method > p.methodData {
     padding: 0px 0px 2px 12px;
     margin-top: 0px;
 }
+
+/* Section styles */
 
 div.parameters {
     border: 1px solid plum;
