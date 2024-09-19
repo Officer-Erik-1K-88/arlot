@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>Arlot Documentation: <span id="className"></span></h1>
+        <h1>Arlot Documentation: <span class="className"></span></h1>
         <nav>
             <a id="navicon">
                 <img src="resources/navicon.png" width="10%" alt="Navigation" onerror="">
@@ -157,7 +157,7 @@
         const navlinks = document.querySelectorAll("a[target='content']");
         const iframe = document.getElementById('content');
 
-        const clazzName = document.getElementById("className");
+        const clazzName = document.querySelectorAll(".className");
 
         window.addEventListener("message", function(event) {
             //if (event.origin !== window.location.origin) return;
@@ -172,7 +172,9 @@
             iframe.style.height = height + 'px';
             title.innerHTML = data.meta.title;
             iframe.title = data.meta.title;
-            clazzName.innerHTML = data.meta.title.split(": ")[1];
+            clazzName.forEach(function(elm) {
+                elm.innerHTML = data.meta.title.split(": ")[1]
+            });
         }, false);
 
         navlinks.forEach(function(link) {

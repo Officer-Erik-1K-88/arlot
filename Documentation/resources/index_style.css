@@ -19,7 +19,7 @@ body {
 
 /* Header styles */
 
-#className {
+.className {
    color: rgb(255, 220, 241);
 }
 
@@ -119,7 +119,7 @@ footer {
       display: block;
    }
    
-   #className {
+   .className {
       display: block;
       padding-top: 4px;
       padding-bottom: 4px;
