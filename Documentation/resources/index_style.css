@@ -41,7 +41,6 @@ header h1 {
 
 header nav ul li {
    background-color: rgb(233, 163, 210);
-   /*font-size: 0.8em;*/
    padding: 0px 10px;
 }
 
@@ -115,8 +114,6 @@ footer {
    ===============================
 */
 @media only screen and (max-width: 640px) {
-
-
    a#navicon {
       display: block;
    }
@@ -131,7 +128,7 @@ footer {
       height: 1.3em;
    }
 
-   a#navicon:hover+ul, header nav ul:hover {
+   a#navicon:hover + ul, header > nav > ul:hover {
       display: block;
    }
 }
@@ -141,9 +138,6 @@ footer {
    =============================================
 */
 @media only screen and (min-width: 641px) {
-
-
-
    header nav ul {
       display: flex;
       flex-flow: row nowrap;

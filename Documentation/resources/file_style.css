@@ -5,7 +5,7 @@ body {
     margin: 8px;
 }
 
-body > h1 {
+body > h1, body > p.classData {
     font-style: oblique;
     color: rgb(123, 8, 77);
     background: linear-gradient(to right, rgb(255, 187, 228) 40%, rgb(153, 6, 94));
@@ -14,10 +14,30 @@ body > h1 {
     padding: 10px 0px 10px 12px;
 }
 
+body > p.classData {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 0.8em;
+    letter-spacing: 0px;
+    text-decoration-line: overline;
+    -moz-text-decoration-line: overline;
+    text-decoration-style: dotted;
+    -moz-text-decoration-style: dotted;
+    text-decoration-thickness: 10%;
+    text-decoration-color: rgb(255, 220, 241);
+    -moz-text-decoration-color: rgb(255, 220, 241);
+    padding: 0px 0px 2px 12px;
+    margin-top: 0px;
+}
+
 /* Section styles */
 
 div.methods, article.method, div.constructors, article.constructor {
     padding: 10px 20px 10px 20px;
+}
+
+div.methods, div.constructors {
+    border: 2px solid plum;
 }
  
 div.methods h2, div.constructors h2 {
@@ -62,6 +82,10 @@ div.parameters {
 
 section {
     margin: 15px;
+}
+
+section.parameter {
+    border: 1px solid hotpink;
 }
 
 section.parameter h4, section.parameter h5 {
