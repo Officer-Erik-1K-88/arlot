@@ -10,7 +10,7 @@ footer, header, main, nav, section {
 address, article, aside, blockquote, body, cite,
 div, dl, dt, dd, em, figcaption, figure, footer,
 h1, h2, h3, h4, h5, h6, header, html, img,
-li, main, nav, nav a, ol, p, span, section, ul,
+li, main, nav, a, ol, p, span, section, ul,
 table, tr, td, th, col, colgroup {
    margin: 0;
    padding: 0;
@@ -22,7 +22,7 @@ table, tr, td, th, col, colgroup {
    box-sizing: border-box;
 }
 
-header h1, nav, nav a, ol, ul {
+header h1, nav, a, ol, ul {
     padding: 4px;
 }
 
@@ -42,7 +42,7 @@ nav ul {
    list-style-image: none;
 }
 
-nav a {
+a {
    text-decoration: none;
 }
 

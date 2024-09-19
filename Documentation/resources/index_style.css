@@ -116,9 +116,19 @@ footer {
    background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
    font-size: 0.65em;
    font-style: normal;
-   height: 30px;
+   min-height: 30px;
    line-height: 30px;
    text-align: center;
+}
+
+footer a {
+   color: rgb(255, 220, 241);
+   display: inline-block;
+}
+
+footer a:hover {
+   color: rgb(153, 6, 94);
+   background-color: rgb(255, 220, 241);
 }
 
 /* ===============================
