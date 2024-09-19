@@ -84,7 +84,7 @@ header nav ul li a:hover {
    display: block;
 }
 
-a#navicon {
+a.navicon {
    color: rgb(153, 6, 94);
    display: none;
 }
@@ -97,6 +97,17 @@ iframe#content {
    outline: none;
    flex-shrink: 0; /* Prevent shrinking */
 }
+
+/* contents styles */
+
+.contents {
+   margin: 10px;
+}
+
+.contents p {
+   line-height: 1.4em;
+}
+
 
 /* Footer styles */
 
@@ -115,7 +126,7 @@ footer {
    ===============================
 */
 @media only screen and (max-width: 640px) {
-   a#navicon {
+   a.navicon {
       display: block;
    }
    
@@ -134,7 +145,7 @@ footer {
       line-height: 1.3em;
    }
 
-   a#navicon:hover + ul, header > nav > ul:hover {
+   a.navicon:hover + ul, header > nav > ul:hover {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
