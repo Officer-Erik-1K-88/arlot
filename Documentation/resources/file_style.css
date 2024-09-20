@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url("variables.css");
 
 /* Body styles */
 body {
@@ -7,8 +8,8 @@ body {
 
 body > h1, body > p.classData {
     font-style: oblique;
-    color: rgb(123, 8, 77);
-    background: linear-gradient(to right, rgb(255, 187, 228) 40%, rgb(153, 6, 94));
+    color: var(--darkPink);
+    background: linear-gradient(to right, var(--lightPink2) 40%, var(--darkHotPink));
     font-size: 1.4em;
     letter-spacing: 1px;
     padding: 10px 0px 10px 12px;
@@ -24,45 +25,50 @@ body > p.classData {
     text-decoration-style: dotted;
     -moz-text-decoration-style: dotted;
     text-decoration-thickness: 10%;
-    text-decoration-color: rgb(255, 220, 241);
-    -moz-text-decoration-color: rgb(255, 220, 241);
+    text-decoration-color: var(--lightPink);
+    -moz-text-decoration-color: var(--lightPink);
     padding: 0px 0px 2px 12px;
     margin-top: 0px;
 }
 
 /* Method and Constructor styles */
 
-div.methods, article.method, div.constructors, article.constructor {
+div.methods, article.method,
+div.constructors, article.constructor,
+div.dependencies, article.dependency {
     padding: 10px 20px 10px 20px;
 }
 
-div.methods, div.constructors {
+div.methods, div.constructors, div.dependencies {
     border: 2px solid plum;
 }
  
-div.methods h2, div.constructors h2 {
+div.methods h2, div.constructors h2, div.dependencies h2 {
     color: white;
-    background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
+    background: linear-gradient(to right, var(--darkHotPink) 30%, black);
     font-size: 1.1em;
     letter-spacing: 2px;
     padding: 5px 0px 5px 12px;
 }
 
-article.method, article.constructor {
+article.method, article.constructor, article.dependency {
     border: 2px solid hotpink;
 }
 
 article.method h3,
 article.method > p.methodData,
-article.constructor h3 {
+article.constructor h3,
+article.dependency h3,
+article.dependency > p.dependencyData {
     color: white;
-    background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
+    background: linear-gradient(to right, var(--darkHotPink) 30%, black);
     font-size: 1em;
     letter-spacing: 1px;
     padding: 5px 0px 5px 12px;
 }
 
-article.method > p.methodData {
+article.method > p.methodData,
+article.dependency > p.dependencyData {
     font-style: italic;
     font-weight: normal;
     font-size: 0.8em;
@@ -70,8 +76,8 @@ article.method > p.methodData {
     text-decoration-line: overline;
     -moz-text-decoration-line: overline;
     text-decoration-thickness: 10%;
-    text-decoration-color: rgb(255, 220, 241);
-    -moz-text-decoration-color: rgb(255, 220, 241);
+    text-decoration-color: var(--lightPink);
+    -moz-text-decoration-color: var(--lightPink);
     padding: 0px 0px 2px 12px;
     margin-top: 0px;
 }
@@ -92,7 +98,7 @@ section.parameter {
 
 section.parameter h4, section.parameter h5 {
     color: white;
-    background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
+    background: linear-gradient(to right, var(--darkHotPink) 30%, black);
     font-size: 1em;
     padding: 2px 0px 2px 9px;
 }
@@ -104,8 +110,8 @@ section.parameter h5 {
     text-decoration-line: overline;
     -moz-text-decoration-line: overline;
     text-decoration-thickness: 10%;
-    text-decoration-color: rgb(255, 220, 241);
-    -moz-text-decoration-color: rgb(255, 220, 241);
+    text-decoration-color: var(--lightPink);
+    -moz-text-decoration-color: var(--lightPink);
     padding: 0px 0px 2px 12px;
     margin-top: 0px;
 }

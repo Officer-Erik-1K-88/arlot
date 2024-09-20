@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url("variables.css");
 
 /* HTML and Body styles */
 
@@ -22,6 +23,50 @@ body {
 
 header, footer {
    flex-shrink: 0;
+}
+
+/* link styles */
+
+.link {
+
+   color: var(--grey);
+}
+
+.link:hover, .link:active {
+   color: var(--redGrey);
+   background-color: var(--transDarkPink);
+}
+
+.link:visited {
+   color: var(--redGrey);
+}
+
+.link.light {
+   color: var(--lightPink);
+}
+
+.link.light:hover, .link.light:active {
+   --redOrange: var(--orangeRed);
+   font-weight: 900;
+   color: var(--darkHotPink);
+   background-color: var(--transLightPink);
+}
+
+.link.light:visited {
+   color: var(--redOrange);
+}
+
+.link.dark {
+   color: var(--darkHotPink);
+}
+
+.link.dark:hover, .link.dark:active {
+   color: var(--lightPink);
+   background-color: var(--transDarkHotPink);
+}
+
+.link.dark:visited {
+   color: var(--darkPurple);
 }
 
 /* ===============================

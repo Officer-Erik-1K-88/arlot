@@ -1,16 +1,17 @@
 @charset "utf-8";
+@import url("variables.css");
 
 /* HTML and Body styles */
 
 html {
-   background-color: rgb(233, 163, 210);
+   background-color: var(--mudLightPink);
 }
 
 body {
    background-color: white;
-   box-shadow: rgb(51, 51, 51) 10px 0px 40px,  rgb(51, 51, 51) -10px 0px 40px;
-   border-left: 1px solid rgb(153, 6, 94);
-   border-right: 1px solid rgb(153, 6, 94);
+   box-shadow: var(--darkGrey) 10px 0px 40px,  var(--darkGrey) -10px 0px 40px;
+   border-left: 1px solid var(--darkHotPink);
+   border-right: 1px solid var(--darkHotPink);
    margin: 0px auto;
    min-width: 320px;
    max-width: 1200px;
@@ -20,18 +21,18 @@ body {
 /* Header styles */
 
 .className {
-   color: rgb(255, 220, 241);
+   color: var(--lightPink);
 }
 
 header {
-   background-color: rgb(233, 163, 210);
-   border-bottom: 1px solid rgb(153, 6, 94);
+   background-color: var(--mudLightPink);
+   border-bottom: 1px solid var(--darkHotPink);
    color: white;
 
 }
 
 header h1 {
-   background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
+   background: linear-gradient(to right, var(--darkHotPink) 30%, black);
    color: white;
    font-size: 1.4em;
    padding: 5px 0px 5px 12px;
@@ -40,24 +41,24 @@ header h1 {
 /* Navigation list styles */
 
 header nav ul li {
-   background-color: rgb(233, 163, 210);
+   background-color: var(--mudLightPink);
    padding: 0px 10px;
 }
 
 header nav ul li a {
-   color: rgb(153, 6, 94);
+   color: var(--darkHotPink);
    display: block;
    width: 100%;
 }
 
 .active, .active > a {
    color: white;
-   background-color: rgb(177, 27, 117);
+   background-color: var(--darkPink2);
 }
 
 header nav ul li a:hover {
    color: white;
-   background-color: rgb(153, 6, 94);
+   background-color: var(--darkHotPink);
 }
 
 .dropdown {
@@ -68,10 +69,10 @@ header nav ul li a:hover {
 .dropdown-content {
    display: none;
    position: absolute;
-   background-color: rgb(233, 163, 210);
+   background-color: var(--mudLightPink);
    min-width: 50px;
-   border: 1px solid rgb(153, 6, 94);
-   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   border: 1px solid var(--darkHotPink);
+   box-shadow: 0px 8px 16px 0px var(--shadowColor);
    padding: 12px 16px;
    z-index: 1;
 }
@@ -85,7 +86,7 @@ header nav ul li a:hover {
 }
 
 a.navicon {
-   color: rgb(153, 6, 94);
+   color: var(--darkHotPink);
    display: none;
 }
 
@@ -113,7 +114,7 @@ iframe#content {
 
 footer {
    color: white;
-   background: linear-gradient(to right, rgb(153, 6, 94) 30%, black);
+   background: linear-gradient(to right, var(--darkHotPink) 30%, black);
    font-size: 0.65em;
    font-style: normal;
    min-height: 30px;
@@ -122,13 +123,13 @@ footer {
 }
 
 footer a {
-   color: rgb(255, 220, 241);
+   color: var(--lightPink);
    display: inline-block;
 }
 
 footer a:hover {
-   color: rgb(153, 6, 94);
-   background-color: rgb(255, 220, 241);
+   color: var(--darkHotPink);
+   background-color: var(--lightPink);
 }
 
 /* ===============================

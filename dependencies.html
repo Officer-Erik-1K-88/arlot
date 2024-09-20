@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arlot Main Menu</title>
+    <link href="Documentation/resources/base_reset.css" rel="stylesheet">
+    <link href="Documentation/resources/base_style.css" rel="stylesheet">
+    <link href="Documentation/resources/index_style.css" rel="stylesheet">
+    <link href="Documentation/resources/dependencies_style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Arlot Main Menu</h1>
+        <nav>
+            <a class="navicon">
+                <img src="Documentation/resources/navicon.png" width="10%" alt="Navigation">
+            </a>
+            <ul>
+                <li><a href="index.html">Main Menu</a></li>
+                <li><a href="Documentation/index.html">Documentation</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="dependenciesBody" class="contents">
+        <div class="dependencies">
+            <article class="dependency">
+                <h2 class="dependencyName">JSON In Java</h2>
+                <p class="dependencyData">
+                    <span class="version">Version: 20240303</span>
+                    <span>Link: <a href="https://mvnrepository.com/artifact/org.json/json" class="link light">Maven</a></span>
+                </p>
+                <section class="about">
+                    <p>JSON is a light-weight, language independent, data interchange format. See <a href="http://www.JSON.org/" class="link dark">http://www.JSON.org/</a> The files in this package implement JSON encoders/decoders in Java. It also includes the capability to convert between JSON and XML, HTTP headers, Cookies, and CDL. This is a reference implementation. There are a large number of JSON packages in Java. Perhaps someday the Java community will standardize on one. Until then, choose carefully.</p>
+                </section>
+            </article>
+            <article class="dependency">
+                <h2 class="dependencyName">JavaFX</h2>
+                <p class="dependencyData">
+                    <span class="version">Version: 21</span>
+                    <span>Link: <a href="https://openjfx.io/" class="link light">Documentation</a></span>
+                </p>
+                <section class="about">
+                    <p>JavaFX Controls: <a href="https://mvnrepository.com/artifact/org.openjfx/javafx-controls" class="link dark">Maven</a></p>
+                    <p>JavaFX Graphics: <a href="https://mvnrepository.com/artifact/org.openjfx/javafx-graphics" class="link dark">Maven</a></p>
+                    <p>JavaFX FXML: <a href="https://mvnrepository.com/artifact/org.openjfx/javafx-graphics" class="link dark">Maven</a></p>
+                </section>
+            </article>
+            <article class="dependency">
+                <h2 class="dependencyName">Jsoup Java HTML Parser</h2>
+                <p class="dependencyData">
+                    <span class="version">Version: 1.18.1</span>
+                    <span>Link: <a href="https://mvnrepository.com/artifact/org.jsoup/jsoup" class="link light">Maven</a></span>
+                </p>
+                <section class="about">
+                    <p>jsoup is a Java library that simplifies working with real-world HTML and XML. It offers an easy-to-use API for URL fetching, data parsing, extraction, and manipulation using DOM API methods, CSS, and xpath selectors. jsoup implements the WHATWG HTML5 specification, and parses HTML to the same DOM as modern browsers.</p>
+                    <p>Documentation: <a href="https://jsoup.org/" class="link dark">https://jsoup.org/</a></p>
+                </section>
+            </article>
+            <!-- dependency entry template:
+            <article class="dependency">
+                <h2 class="dependencyName"></h2>
+                <p class="dependencyData">
+                    <span class="version">Version: </span>
+                    <span>Link: <a href="" class="link">Maven</a></span>
+                </p>
+                <section class="about"></section>
+            </article>
+            -->
+        </div>
+    </main>
+    <footer>
+        Copyright &copy; 2024 Officer Erik 1K-88, CC0-1.0 license
+    </footer>
+    <script type="text/javascript">
+        const img = document.getElementsByTagName("img")[0];
+        img.onerror = function() {
+            img.src = "Documentation/resources/navicon2.png";
+            img.onerror = null;
+        }
+    </script>
+</body>
+</html>
