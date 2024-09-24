@@ -1,160 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Arlot Documentation: Directory</title>
-    <link href="resources/base_reset.css" rel="stylesheet">
-    <link href="resources/base_style.css" rel="stylesheet">
-    <link href="resources/index_style.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <h1>Arlot Documentation: <span class="className"></span></h1>
-        <nav>
-            <a class="navicon">
-                <img src="resources/navicon.png" width="10%" alt="Navigation">
-            </a>
-            <ul>
-                <li><a href="resources/templete.html" target="content">Templete</a></li>
-                <li><a href="self.html" target="content">Overview</a></li>
-                <li><a href="arlot.html" target="content">Arlot</a></li>
-                <li><a href="generator.html" target="content">Generator</a></li>
-                <li class="dropdown">
-                    <a href="data/self.html" target="content">data</a>
-                    <ul class="dropdown-content">
-                        <li class="dropdown">
-                            <a href="data/collect/self.html" target="content">collect</a>
-                            <ul class="dropdown-content">
-                                <li><a href="data/collect/dataList.html" target="content">DataList</a></li>
-                                <li><a href="data/collect/dataString.html" target="content">DataString</a></li>
-                                <li><a href="data/collect/identifiable.html" target="content">Identifiable</a></li>
-                                <li><a href="data/collect/listMap.html" target="content">ListMap</a></li>
-                                <li><a href="data/collect/pair.html" target="content">Pair</a></li>
-                                <li><a href="data/collect/registry.html" target="content">Registry</a></li>
-                                <li><a href="data/collect/table.html" target="content">Table</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="data/file/self.html" target="content">file</a>
-                            <ul class="dropdown-content">
-                                <li><a href="data/file/import.html" target="content">Import</a></li>
-                                <li><a href="data/file/json.html" target="content">JSON</a></li>
-                                <li><a href="data/file/xml.html" target="content">XML</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="data/tag/self.html" target="content">tag</a>
-                            <ul class="dropdown-content">
-                                <li><a href="data/tag/tag.html" target="content">Tag</a></li>
-                                <li><a href="data/tag/taggable.html" target="content">Taggable</a></li>
-                                <li><a href="data/tag/tagHolder.html" target="content">tagHolder</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="data/compares.html" target="content">Compares</a></li>
-                        <li><a href="data/copyable.html" target="content">Copyable</a></li>
-                        <li><a href="data/data.html" target="content">Data</a></li>
-                        <li><a href="data/fileReadWrite.html" target="content">FileReadWrite</a></li>
-                        <li><a href="data/info.html" target="content">Info</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="error/self.html" target="content">error</a>
-                    <ul class="dropdown-content">
-                        <li><a href="error/BadBinaryValueException.html" target="content">BadBinaryValueException</a></li>
-                        <li><a href="error/BadNumberValueException.html" target="content">BadNumberValueException</a></li>
-                        <li><a href="error/FileReadingException.html" target="content">FileReadingException</a></li>
-                        <li><a href="error/FileUpdateException.html" target="content">FileUpdateException</a></li>
-                        <li><a href="error/FormattedDataStringException.html" target="content">FormattedDataStringException</a></li>
-                        <li><a href="error/GetValueException.html" target="content">GetValueException</a></li>
-                        <li><a href="error/IdentificationException.html" target="content">IdentificationException</a></li>
-                        <li><a href="error/InvalidColorException.html" target="content">InvalidColorException</a></li>
-                        <li><a href="error/NotCloneableException.html" target="content">NotCloneableException</a></li>
-                        <li><a href="error/NotDuplicatableException.html" target="content">NotDuplicatableException</a></li>
-                        <li><a href="error/NotImplementedException.html" target="content">NotImplementedException</a></li>
-                        <li><a href="error/OutOfRangeException.html" target="content">OutOfRangeException</a></li>
-                        <li><a href="error/UpdateDeniedException.html" target="content">UpdateDeniedException</a></li>
-                        <li><a href="error/ValidBaseException.html" target="content">ValidBaseException</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="math/self.html" target="content">math</a>
-                    <ul class="dropdown-content">
-                        <li><a href="math/advanced.html" target="content">Advanced</a></li>
-                        <li><a href="math/basic.html" target="content">Basic</a></li>
-                        <li><a href="math/binary.html" target="content">Binary</a></li>
-                        <li><a href="math/constants.html" target="content">Constants</a></li>
-                        <li><a href="math/convert.html" target="content">convert</a></li>
-                        <li><a href="math/factoral.html" target="content">Factoral</a></li>
-                        <li><a href="math/fraction.html" target="content">Fraction</a></li>
-                        <li><a href="math/number.html" target="content">Number</a></li>
-                        <li><a href="math/numeric.html" target="content">Numeric</a></li>
-                        <li><a href="math/numericString.html" target="content">NumericString</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="protect/self.html" target="content">protect</a>
-                    <ul class="dropdown-content">
-                        <li><a href="protect/encryption.html" target="content">Encryption</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="roleplay/self.html" target="content">roleplay</a>
-                    <ul class="dropdown-content">
-                        <li class="dropdown">
-                            <a href="roleplay/info/self.html" target="content">info</a>
-                            <ul class="dropdown-content">
-                                <li><a href="roleplay/info/character.html" target="content">Characters</a></li>
-                                <li><a href="roleplay/info/characters.html" target="content">Characters</a></li>
-                                <li><a href="roleplay/info/data.html" target="content">Data</a></li>
-                                <li><a href="roleplay/info/item.html" target="content">item</a></li>
-                                <li><a href="roleplay/info/items.html" target="content">Items</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="roleplay/roleplay.html" target="content">RolePlay</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="time/self.html" target="content">time</a>
-                    <ul class="dropdown-content">
-                        <li><a href="time/date.html" target="content">Date</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="user/self.html" target="content">user</a>
-                    <ul class="dropdown-content">
-                        <li class="dropdown">
-                            <a href="user/display/self.html" target="content">display</a>
-                            <ul class="dropdown-content">
-                                <li class="dropdown">
-                                    <a href="user/display/controllers/self.html" target="content">controllers</a>
-                                    <ul class="dropdown-content">
-                                        <li><a href="user/display/controllers/default.html" target="content">Default</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="user/display/alert.html" target="content">Alert</a></li>
-                                <li><a href="user/display/application.html" target="content">Application</a></li>
-                                <li><a href="user/display/dialog.html" target="content">Dialog</a></li>
-                                <li><a href="user/display/image.html" target="content">Image</a></li>
-                                <li><a href="user/display/resources.html" target="content">Resources</a></li>
-                                <li><a href="user/display/test.html" target="content">Test</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="user/color.html" target="content">Color</a></li>
-                        <li><a href="user/colors.html" target="content">Colors</a></li>
-                        <li><a href="user/userInput.html" target="content">UserInput</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <iframe id="content" name="content" title="Arlot Documentation: Directory"></iframe>
-    <footer>
-        <!-- Copyright information -->
-        Copyright &copy; 2024 Officer Erik 1K-88, CC0-1.0 license | 
-        <a href="../index.html">Return to Menu</a>
-    </footer>
-    <script type="text/javascript">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arlot Documentation: Directory</title>
+  <link href="resources/base_reset.css" rel="stylesheet">
+  <link href="resources/base_style.css" rel="stylesheet">
+  <link href="resources/index_style.css" rel="stylesheet">
+ </head>
+ <body>
+  <header>
+   <h1>Arlot Documentation: <span class="className"></span></h1>
+   <nav>
+    <a class="navicon"> <img src="resources/navicon.png" width="10%" alt="Navigation"> </a>
+    <ul>
+     <li><a href="Overview.html" target="content">Overview</a></li>
+     <li class="dropdown">
+      <a href="time/self.html" target="content">Time</a>
+      <ul class="dropdown-content">
+       <li><a href="time/date.html" target="content">Date</a></li>
+      </ul>
+     </li>
+    </ul>
+   </nav>
+  </header><iframe id="content" name="content" title="Arlot Documentation: Directory"></iframe>
+  <footer>
+   <!-- Copyright information --> Copyright © 2024 Officer Erik 1K-88, CC0-1.0 license | <a href="../index.html">Return to Menu</a>
+  </footer>
+  <script type="text/javascript">
         const title = document.getElementsByTagName("title")[0];
         const navlinks = document.querySelectorAll("a[target='content']");
         const iframe = document.getElementById('content');
@@ -195,5 +68,5 @@
             img.onerror = null;
         }
     </script>
-</body>
+ </body>
 </html>

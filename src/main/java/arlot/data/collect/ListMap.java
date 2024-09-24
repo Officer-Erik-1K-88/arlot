@@ -37,6 +37,11 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
             this.index = index;
         }
 
+        public Node(int index, Pair<K, V> pair) {
+            super(pair);
+            this.index = index;
+        }
+
         @Override
         public K setKey(K key) {
             K ret = super.setKey(key);
@@ -57,6 +62,14 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
             update(key, value);
             this.index = index;
         }
+    }
+
+    final Node nodeOf(int index, K key, V value) {
+        return new Node(index, key, value);
+    }
+
+    final Node nodeOf(int index, Pair<K, V> pair) {
+        return new Node(index, pair);
     }
 
     /**
@@ -148,7 +161,7 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
     public boolean contains(Object value) {
         if (checkKeyType(value)) {
             return containsKey(value);
-        } else if (value instanceof Entry<?, ?> entry) {
+        } else if (value instanceof Map.Entry<?, ?> entry) {
             return contains(entry.getKey(), entry.getValue());
         }
         return this.containsValue(value);
@@ -181,13 +194,19 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
         return keys.size();
     }
 
+    /**
+     * Get the index of some key or value that is stored in this ListMap.
+     *
+     * @param o The object to find the index of, can be a key, a value, or a key-value Pair.
+     * @return The index of the Object or -1 if the Object isn't stored in this ListMap.
+     */
     @SuppressWarnings("unchecked")
     public int indexOf(Object o) {
         if (checkKeyType(o)) {
             return keys.indexOf((K) o);
         } else if (o instanceof Map.Entry<?,?>) {
-            Object key = ((Entry<?, ?>) o).getKey();
-            Object value = ((Entry<?, ?>) o).getValue();
+            Object key = ((Map.Entry<?, ?>) o).getKey();
+            Object value = ((Map.Entry<?, ?>) o).getValue();
             if (contains(key, value)) {
                 return indexOf(key);
             }
@@ -359,16 +378,20 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
 
     public Pair<K, V> set(int index, Pair<K, V> pair) {
         if (Objects.equals(keys.get(index), pair.getKey())) {
-            return new Pair<>(pair.getKey(), hashMap.put(pair.getKey(), pair.getValue()));
+            return new Node(index, pair.getKey(), hashMap.put(pair.getKey(), pair.getValue()));
         }
         if (containsKey(pair.getKey())) {
             throw new IdentificationException("Cannot add this Object to the ListMap, key already exists and is not at "+index+" index.");
         }
-        Pair<K, V> ret;
+        Node ret;
         K past = keys.set(index, pair.getKey());
-        ret = new Pair<>(past, hashMap.remove(past));
+        ret = new Node(index, past, hashMap.remove(past));
         hashMap.put(pair.getKey(), pair.getValue());
         return ret;
+    }
+
+    public Pair<K, V> set(int index, K key, V value) {
+        return set(index, new Pair<>(key, value));
     }
 
     /* ------------------------------------------------------------ */
@@ -380,8 +403,8 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
         K key;
         if (value instanceof Map.Entry<?, ?>) {
             if (contains(value)) {
-                key = (K) ((Entry<?, ?>) value).getKey();
-                V val = (V) ((Entry<?, ?>) value).getValue();
+                key = (K) ((Map.Entry<?, ?>) value).getKey();
+                V val = (V) ((Map.Entry<?, ?>) value).getValue();
                 removed = this.get(key);
                 if (!remove(key, val)) {
                     removed = null;
@@ -506,7 +529,7 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
 
     private Set<K> keySet = null;
     private Collection<V> values = null;
-    private Set<Entry<K, V>> entrySet = null;
+    private Set<Map.Entry<K, V>> entrySet = null;
 
     /**
      * Returns a list iterator over the elements in this ListMap (in proper
@@ -619,14 +642,21 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
      * @return a set view of the mappings contained in this map
      */
     @Override
-    public Set<Entry<K, V>> entrySet() {
-        Set<Entry<K, V>> es;
+    public Set<Map.Entry<K, V>> entrySet() {
+        Set<Map.Entry<K, V>> es;
         return (es = entrySet) == null ? (entrySet = new EntrySet()) : es;
     }
 
     @Override
     public void forEach(BiConsumer<? super K, ? super V> action) {
         hashMap.forEach(action);
+    }
+
+    public void forEachIndex(BiConsumer<Integer, Pair<K, V>> action) {
+        Objects.requireNonNull(action);
+        for (int i=0; i<size(); i++) {
+            action.accept(i, new Node(i, get(i)));
+        }
     }
 
     /* ------------------------------------------------------------ */
@@ -647,8 +677,9 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
             if (i >= size())
                 throw new NoSuchElementException();
             cursor = i + 1;
-            K id = keys.get(lastRet = i);
-            return new Pair<>(id, ListMap.this.get(id));
+            int lr = (lastRet = i);
+            K id = keys.get(lr);
+            return new Node(lr, id, ListMap.this.get(id));
         }
 
         public void remove() {
@@ -671,8 +702,9 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
             int i = cursor;
             if (i < size) {
                 for (; i < size; i++) {
-                    K id = keys.get(lastRet = i);
-                    action.accept(new Pair<>(id, ListMap.this.get(id)));
+                    int lr = (lastRet = i);
+                    K id = keys.get(lr);
+                    action.accept(new Node(lr, id, ListMap.this.get(id)));
                 }
                 // update once at end to reduce heap write traffic
                 cursor = i;
@@ -704,8 +736,9 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
             if (i < 0)
                 throw new NoSuchElementException();
             cursor = i;
-            K id = keys.get(lastRet = i);
-            return new Pair<>(id, ListMap.this.get(id));
+            int lr = (lastRet = i);
+            K id = keys.get(lr);
+            return new Node(lr, id, ListMap.this.get(id));
         }
 
         public void set(Pair<K, V> e) {
@@ -785,8 +818,8 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
     }
 
     final class EntryIterator extends ListMapIterator
-            implements Iterator<Entry<K, V>> {
-        public Entry<K, V> next() {
+            implements Iterator<Map.Entry<K, V>> {
+        public Map.Entry<K, V> next() {
             return nextNode();
         }
     }
@@ -854,14 +887,14 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
         }
     }
 
-    final class EntrySet extends AbstractSet<Entry<K, V>> {
+    final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public int size() {
             return ListMap.this.size();
         }
         public void clear() {
             ListMap.this.clear();
         }
-        public Iterator<Entry<K, V>> iterator() {
+        public Iterator<Map.Entry<K, V>> iterator() {
             return new EntryIterator();
         }
         public boolean contains(Object o) {
@@ -879,13 +912,11 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
             }
             return false;
         }
-        public Spliterator<Entry<K, V>> spliterator() {
+        public Spliterator<Map.Entry<K, V>> spliterator() {
             return new EntrySpliterator<>(ListMap.this, 0, -1, 0);
         }
-        public void forEach(Consumer<? super Entry<K, V>> action) {
-            ListMap.this.forEach((key, value) -> {
-                action.accept(new Pair<>(key, value));
-            });
+        public void forEach(Consumer<? super Map.Entry<K, V>> action) {
+            ListMap.this.forEachIndex((index, pair) -> action.accept(new Node(index, pair)));
         }
     }
 
@@ -894,7 +925,7 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
 
     static class ListMapSpliterator<K, V> {
         final ListMap<K, V> map;
-        Pair<K, V> current;          // current node
+        ListMap<K, V>.Node current;          // current node
         int index;                  // current index, modified on advance/split
         int fence;                  // one past last index
         int est;                    // size estimate
@@ -973,13 +1004,14 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
                 while (current != null || index < hi) {
                     K id;
                     if (current == null) {
-                        id = m.keys.get(index++);
-                        current = new Pair<>(id, m.get(id));
+                        int lr = index++;
+                        id = m.keys.get(lr);
+                        current = m.nodeOf(lr, id, m.get(id));
                     } else {
                         K k = current.getKey();
                         if (index+1 < m.keys.size()) {
                             id = m.keys.get(index+1);
-                            current = new Pair<>(id, m.get(id));
+                            current = m.nodeOf(index+1, id, m.get(id));
                         } else {
                             current = null;
                         }
@@ -1047,13 +1079,14 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
                 while (current != null || index < hi) {
                     K id;
                     if (current == null) {
-                        id = m.keys.get(index++);
-                        current = new Pair<>(id, m.get(id));
+                        int lr = index++;
+                        id = m.keys.get(lr);
+                        current = m.nodeOf(lr, id, m.get(id));
                     } else {
                         V v = current.getValue();
                         if (index+1 < m.keys.size()) {
                             id = m.keys.get(index+1);
-                            current = new Pair<>(id, m.get(id));
+                            current = m.nodeOf(index+1, id, m.get(id));
                         } else {
                             current = null;
                         }
@@ -1072,7 +1105,7 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
 
     static final class EntrySpliterator<K, V>
         extends ListMapSpliterator<K, V>
-        implements Spliterator<Entry<K, V>> {
+        implements Spliterator<Map.Entry<K, V>> {
         EntrySpliterator(ListMap<K, V> m, int origin, int fence, int est) {
             super(m, origin, fence, est);
         }
@@ -1083,7 +1116,7 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
                 new EntrySpliterator<>(map, lo, index = mid, est >>>= 1);
         }
 
-        public void forEachRemaining(Consumer<? super Entry<K, V>> action) {
+        public void forEachRemaining(Consumer<? super Map.Entry<K, V>> action) {
             int i, hi;
             if (action == null)
                 throw new NullPointerException();
@@ -1100,8 +1133,9 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
                         action.accept(p);
                     }
                     try {
-                        K id = m.keys.get(i++);
-                        p = new Pair<>(id, m.get(id));
+                        int lr = i++;
+                        K id = m.keys.get(lr);
+                        p = m.nodeOf(lr, id, m.get(id));
                     } catch (IndexOutOfBoundsException e) {
                         p = null;
                     }
@@ -1109,7 +1143,7 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
             }
         }
 
-        public boolean tryAdvance(Consumer<? super Entry<K, V>> action) {
+        public boolean tryAdvance(Consumer<? super Map.Entry<K, V>> action) {
             int hi;
             if (action == null)
                 throw new NullPointerException();
@@ -1118,13 +1152,14 @@ public class ListMap<K, V> implements SequencedMap<K, V>,
                 while (current != null || index < hi) {
                     K id;
                     if (current == null) {
-                        id = m.keys.get(index++);
-                        current = new Pair<>(id, m.get(id));
+                        int lr = index++;
+                        id = m.keys.get(lr);
+                        current = m.nodeOf(lr, id, m.get(id));
                     } else {
                         Pair<K, V> e = current;
                         if (index+1 < m.keys.size()) {
                             id = m.keys.get(index+1);
-                            current = new Pair<>(id, m.get(id));
+                            current = m.nodeOf(index+1, id, m.get(id));
                         } else {
                             current = null;
                         }

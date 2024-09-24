@@ -186,7 +186,7 @@ public class DataList<E> implements List<E>, Iterable<E>, //RandomAccess,
     public int indexOf(Object o) {
         int index = elementData.indexOf(o);
         if (index == -1) {
-            elementData.indexOf(new Data<>(o));
+            index = elementData.indexOf(new Data<>(o));
         }
         return index;
     }
@@ -208,7 +208,7 @@ public class DataList<E> implements List<E>, Iterable<E>, //RandomAccess,
     public int lastIndexOf(Object o) {
         int index = elementData.lastIndexOf(o);
         if (index == -1) {
-            elementData.lastIndexOf(new Data<>(o));
+            index = elementData.lastIndexOf(new Data<>(o));
         }
         return index;
     }

@@ -45,6 +45,11 @@
             <artifactId>jsoup</artifactId>
             <version>1.18.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.jspecify</groupId>
+            <artifactId>jspecify</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

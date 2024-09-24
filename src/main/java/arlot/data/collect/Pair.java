@@ -39,8 +39,7 @@ public class Pair<K, V> implements Cloneable, Serializable,
      * @param value The {@code Object} to set as the value.
      */
     public Pair(K key, V value) {
-        this.key = new Data<>(key);
-        this.value = new Data<>(value);
+        this(new Data<>(key), new Data<>(value));
     }
 
     /**
