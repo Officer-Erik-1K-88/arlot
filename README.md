@@ -5,7 +5,7 @@ This project is still incomplete and somethings may not work.
 
 Note: The following documentation pages are not all complete, currently most of them don't state anything on the functionality yet.
 
-[Open the documentation.](arlot.data.file.doc.Documentation/index.html)
+[Open the documentation.](Documentation/index.html)
 
 ## Dependencies:
 
