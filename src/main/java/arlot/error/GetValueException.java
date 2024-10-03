@@ -5,7 +5,7 @@ package arlot.error;
  * <br>
  * Declares that something went wrong during the process of getting a value.
  */
-public class GetValueException extends RuntimeException {
+public class GetValueException extends IdentificationException {
     // Default constructor
     public GetValueException() {
         super();

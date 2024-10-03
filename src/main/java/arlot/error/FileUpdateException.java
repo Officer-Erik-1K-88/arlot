@@ -5,7 +5,7 @@ package arlot.error;
  * <br>
  * Declares that the stated file couldn't be created/updated.
  */
-public class FileUpdateException extends RuntimeException {
+public class FileUpdateException extends UpdateDeniedException {
     // Default constructor
     public FileUpdateException() {
         super();

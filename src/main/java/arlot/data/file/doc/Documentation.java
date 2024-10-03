@@ -2,7 +2,6 @@ package arlot.data.file.doc;
 
 import arlot.data.collect.Options;
 import arlot.data.collect.Pair;
-import arlot.data.file.HTML;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -36,10 +35,20 @@ public class Documentation {
     private Section methods = null;
 
     private final String className;
+    private final String type;
+    private final String fileName;
     private final int aboutIndex;
 
     public Documentation(String className, String status, String extend, String[] implement) {
+        this(className, status, extend, implement, null);
+    }
+
+    public Documentation(String className, String status, String extend, String[] implement, String fileName) {
         this.className = className;
+        if (fileName == null || fileName.isBlank()) {
+            fileName = this.className;
+        }
+        this.fileName = fileName;
         if (status == null) {
             status = "";
         }
@@ -49,13 +58,19 @@ public class Documentation {
         if (implement == null) {
             implement = new String[0];
         }
+        if (status.isBlank()) {
+            this.type = "null";
+        } else {
+            this.type = status;
+        }
         HTML.Meta viewport = new HTML.Meta();
         viewport.name("viewport");
         viewport.content("width=device-width, initial-scale=1");
         html.head().appendChild(viewport);
-        html.head().appendChild(new HTML.Meta().update("className", className));
-        html.head().appendChild(new HTML.Meta().update("classStatus", status));
-        html.head().appendChild(new HTML.Meta().update("classExtends", extend));
+        html.head().appendChild(new HTML.Meta("className", className));
+        html.head().appendChild(new HTML.Meta("classStatus", status));
+        html.head().appendChild(new HTML.Meta("classExtends", extend));
+        html.head().appendChild(new HTML.Meta("fileName", fileName));
 
         StringBuilder imp = new StringBuilder();
         for (int i=0; i<implement.length; i++) {
@@ -137,7 +152,7 @@ public class Documentation {
             path = "";
         }
         if (!path.toLowerCase().endsWith(".html")) {
-            path += className+".html";
+            path += fileName+".html";
         }
         if (def) {
             for (String file : options.get("stylesheets")) {
@@ -161,7 +176,7 @@ public class Documentation {
                     if (lastSlash != -1) {
                         np = np.substring(0, lastSlash);
                     }
-                    if (path.equals(className + ".html")) {
+                    if (path.equals(fileName + ".html")) {
                         np = "";
                     }
                     Element location = null;
@@ -207,6 +222,7 @@ public class Documentation {
                                                     docPath + name + ".html")
                                             .attr("target",
                                                     options.get("link target").getSingle())
+                                            .attr("data-type", "placeholder")
                                             .html(name);
                                     if (nameCheck == null) {
                                         elm.appendChild(alink);
@@ -248,6 +264,11 @@ public class Documentation {
                                 added = true;
                                 alink.html(className);
                                 break;
+                            } else if (alink.text().equals(className) && alink.attr("data-type").equals("placeholder")) {
+                                alink.attr("href", path);
+                                alink.attr("data-type", this.type);
+                                added = true;
+                                break;
                             }
                         }
                     }
@@ -257,6 +278,7 @@ public class Documentation {
                                         .attr("href", path)
                                         .attr("target",
                                                 options.get("link target").getSingle())
+                                        .attr("data-type", this.type)
                                         .html(className)));
                     }
                     index.toFile(options.get("path").getSingle() +
@@ -278,17 +300,16 @@ public class Documentation {
     public File toFile(String path) {
         if (path != null && !path.isBlank()) {
             path = path.replaceAll("\\\\", "/");
-            if (path.endsWith("/")) {
-                path = path.substring(0, path.length()-1);
+            if (!path.endsWith("/")) {
+                path = path+"/";
             }
-            path = path+"/";
         } else {
             path = "";
         }
         if (path.toLowerCase().endsWith(".html")) {
             return html.toFile(path);
         }
-        return html.toFile(path+className+".html");
+        return html.toFile(path+fileName+".html");
     }
 
     @Override
@@ -301,6 +322,7 @@ public class Documentation {
         String status = null;
         String extend = null;
         String[] implement = null;
+        String fileName = null;
         Elements meta = doc.getElementsByTag("meta");
         for (Element data : meta) {
             if (data.attr("name").equals("className")) {
@@ -311,6 +333,8 @@ public class Documentation {
                 extend = data.attr("content");
             } else if (data.attr("name").equals("classImplements")) {
                 implement = data.attr("content").split(", ");
+            } else if (data.attr("name").equals("fileName")) {
+                fileName = data.attr("content");
             }
         }
         if (className == null) {
@@ -336,7 +360,7 @@ public class Documentation {
         if (className == null || status == null || extend == null || implement == null) {
             throw new IllegalArgumentException("The string html must be a previous Documentation Object.");
         }
-        Documentation document = new Documentation(className, status, extend, implement);
+        Documentation document = new Documentation(className, status, extend, implement, fileName);
 
         for (Element elm : doc.body().children()) {
             try {

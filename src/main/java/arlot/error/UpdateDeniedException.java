@@ -5,7 +5,7 @@ package arlot.error;
  * <br>
  * Declares that some value cannot be changed.
  */
-public class UpdateDeniedException extends RuntimeException {
+public class UpdateDeniedException extends IdentificationException {
     // Default constructor
     public UpdateDeniedException() {
         super();

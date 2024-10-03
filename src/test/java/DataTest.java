@@ -1,15 +1,49 @@
 import arlot.data.collect.Pair;
 import arlot.data.file.doc.Documentation;
 
+import javax.xml.transform.TransformerException;
 import java.io.File;
 import java.io.Serializable;
 import java.util.Map;
 
 public class DataTest {
-    public static void main(String[] args) {
-        Documentation Overview = new Documentation("Overview", null, null, null);
-        Overview.about("The arlot package is a constructed holder over many smaller packages that are in the scope of giving useful and easy to use tools in programming.");
-        Overview.toFile(null, true, true);
+    public static class SimpleMessageException extends Exception {
+        private final String message;
+
+        public SimpleMessageException(String message) {
+            this.message = message;
+            //System.err.println(message);
+
+        }
+
+        @Override
+        public String toString() {
+            return message;
+        }
+
+        @Override
+        public String getMessage() {
+            return message;
+        }
+
+        @Override
+        public void printStackTrace() {
+            // Override to only print the message without the stack trace
+            System.err.println(message);
+            System.exit(1);
+        }
+    }
+    public static void main(String[] args) throws Exception {
+        //try {
+            throw new SimpleMessageException("test");
+        //} catch (Exception e) {
+        //    System.out.println(e);
+        //}
+        //TransformerException test = new TransformerException(new Exception("This is just a test"));
+        //System.out.println(test.getLocationAsString());
+        //Documentation Overview = new Documentation("Overview", null, null, null);
+        //Overview.about("The arlot package is a constructed holder over many smaller packages that are in the scope of giving useful and easy to use tools in programming.");
+        //Overview.toFile(null, true, true);
         /*
         Documentation test = new Documentation("[class name]",
                 "class | abstract | interface | annotation",

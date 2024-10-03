@@ -29,4 +29,5 @@ module arlot {
     opens arlot.user.display.controllers to javafx.fxml;
     opens arlot to javafx.fxml;
     opens arlot.user to javafx.fxml;
+    exports arlot.data.file.doc;
 }

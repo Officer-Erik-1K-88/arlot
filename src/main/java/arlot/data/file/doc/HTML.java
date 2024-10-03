@@ -1,4 +1,4 @@
-package arlot.data.file;
+package arlot.data.file.doc;
 
 import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Document;
